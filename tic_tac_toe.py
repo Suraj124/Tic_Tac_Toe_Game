@@ -40,9 +40,9 @@ def check_win(board,mark):
 
 def check_first():
     if randint(0,1)==0:
-        return 'Player2'
+        return 'player2'
     else:
-        return 'Player1'
+        return 'player1'
 
 def space_check(board,position):
     return board[position]==' '
@@ -60,7 +60,57 @@ def check_tie(board):
     return True
 
 def replay():
-    return input("Do you want to play Agian? y or n").lower().startswith('y')
+    return input("Do you want to play Agian? y or n : ").lower().startswith('y')
 
 
+while True:
+    the_board=[' ']*10
+    player1_mark,player2_mark=player_input()
+
+    turn=check_first()
+    print(turn,"will play first")
+
+    play_game=input("Ready to play? y or no : ").lower().startswith('y')
+    
+    if play_game:
+        game_on=True
+    else:
+        game_on=False
+    while game_on:
+        if turn == "player1":
+
+            display_board(the_board)
+            print('Player 1 ')
+            position=player_position(the_board)
+            place_marker(the_board,player1_mark,position)
+            if check_win(the_board,player1_mark):
+                display_board(the_board)
+                print('Player 1 Has Won')
+                game_on=False
+            else:
+                if check_tie(the_board):
+                    display_board(the_board)
+                    print("GAME TIE")
+                else:
+                    turn='player2'
+        else:
+            display_board(the_board)
+            print('Player 2 ')
+            position=player_position(the_board)
+            place_marker(the_board,player2_mark,position)
+            if check_win(the_board,player2_mark):
+                display_board(the_board)
+                print('Player 2 Has Won')
+                game_on=False
+            else:
+                if check_tie(the_board):
+                    display_board(the_board)
+                    print("GAME TIE")
+                else:
+                    turn='player1'
+    if not replay():
+        break
+
+
+    
 
