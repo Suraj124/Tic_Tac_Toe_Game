@@ -27,7 +27,17 @@ def player_input():
 def place_marker(board,mark,position):
     board[position]=mark
 
-the_board=['','1','2','3','4','5','6','7','8','9']
-place_marker(the_board,'@',5)
+def check_win(board,mark):
+    return ((board[7]==mark and board[8]==mark and board[9]==mark) or 
+    (board[5]==mark and board[6]==mark and board[7]==mark) or 
+    (board[1]==mark and board[2]==mark and board[3]==mark) or 
+    (board[1]==mark and board[4]==mark and board[7]==mark) or 
+    (board[2]==mark and board[5]==mark and board[8]==mark) or 
+    (board[3]==mark and board[6]==mark and board[9]==mark) or 
+    (board[1]==mark and board[5]==mark and board[9]==mark) or 
+    (board[3]==mark and board[5]==mark and board[7]==mark))
+
+the_board=['','@','2','3','4','@','6','7','8','@']
+check_win(the_board,'@')
 display_board(the_board)
 
