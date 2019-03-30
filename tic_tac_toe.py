@@ -47,6 +47,9 @@ def check_first():
 def space_check(board,position):
     return board[position]==' '
 
+def replay():
+    return input("Do you want to play Agian? y or n").lower().startswith('y')
+
 the_board=['','@','2','3','4','@','6','7','8','@']
 check_win(the_board,'@')
 display_board(the_board)
