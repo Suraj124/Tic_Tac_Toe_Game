@@ -1,3 +1,4 @@
+from random import randint
 def display_board(board):
     print('\n'*100)
     print('   |   |')
@@ -36,6 +37,12 @@ def check_win(board,mark):
     (board[3]==mark and board[6]==mark and board[9]==mark) or 
     (board[1]==mark and board[5]==mark and board[9]==mark) or 
     (board[3]==mark and board[5]==mark and board[7]==mark))
+
+def check_first():
+    if randint(0,1)==0:
+        return 'Player2'
+    else:
+        return 'Player1'
 
 the_board=['','@','2','3','4','@','6','7','8','@']
 check_win(the_board,'@')
