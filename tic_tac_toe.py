@@ -44,6 +44,9 @@ def check_first():
     else:
         return 'Player1'
 
+def space_check(board,position):
+    return board[position]==' '
+
 the_board=['','@','2','3','4','@','6','7','8','@']
 check_win(the_board,'@')
 display_board(the_board)
