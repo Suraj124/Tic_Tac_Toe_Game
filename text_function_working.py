@@ -1,2 +1,2 @@
-def player_input():
-    pass
+def place_marker(board,mark,position):
+    board[position]=mark
